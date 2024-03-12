@@ -9,7 +9,7 @@ const CardProd = () => {
   const { listaObjetos } = useContext(HomeContext);
 
   return (
-    <div>
+    <>
       {listaObjetos.length === 0 && (
         <Row justify="center">
           <Text>Nenhum objeto encontrado</Text>
@@ -46,7 +46,7 @@ const CardProd = () => {
           </>
         ))}
       </Row>
-    </div>
+    </>
   );
 };
 

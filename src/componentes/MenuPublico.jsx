@@ -88,7 +88,7 @@ const MenuPublico = () => {
                     items,
                   }}
                 >
-                  <Button>Menu</Button>
+                  <Button type="primary">Menu</Button>
                 </Dropdown>
               </div>
               <Button

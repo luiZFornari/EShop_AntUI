@@ -134,20 +134,13 @@ const MenuPrivado = () => {
             {windowSize.width < 500 && (
               <Flex horizontal justify="space-between">
                 <div style={{ width: "180px" }}>
-                  <Menu
-                    onClick={onClick}
-                    style={{
-                      fontSize: "15px",
-                      marginTop: "5px",
-                      position: "relative",
-                      zIndex: 1,
+                  <Dropdown
+                    menu={{
+                      items,
                     }}
-                    selectedKeys={[current]}
-                    mode="inline"
-                    items={items}
-                    theme="dark"
-                    breakpointWidth="xs"
-                  />
+                  >
+                    <Button type="primary">Menu</Button>
+                  </Dropdown>
                 </div>
                 <Button
                   style={{ color: "white", marginTop: "10px" }}
