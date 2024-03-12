@@ -1,66 +1,32 @@
 import React, { useEffect, useState, useRef } from "react";
-import { Button, Flex, Menu } from "antd";
+import { Button, Dropdown, Flex, Menu } from "antd";
 import { NavLink, Outlet, useLocation } from "react-router-dom";
 import Layout, { Content, Header } from "antd/es/layout/layout";
-import { BarsOutlined } from "@ant-design/icons";
 
-const MenuHorizontal = [
+const items = [
   {
+    key: "1",
     label: (
-      <NavLink exact to="/" rel="noopener noreferrer">
+      <NavLink rel="noopener noreferrer" exact to="/">
         Home
       </NavLink>
     ),
-    key: "Home",
   },
   {
+    key: "2",
     label: (
-      <NavLink exact to="login" rel="noopener noreferrer">
+      <NavLink rel="noopener noreferrer" exact to="login">
         Login
       </NavLink>
     ),
-    key: "login",
   },
   {
+    key: "3",
     label: (
-      <NavLink exact to="sobre" rel="noopener noreferrer">
+      <NavLink rel="noopener noreferrer" exact to="sobre">
         Sobre
       </NavLink>
     ),
-    key: "sobre",
-  },
-];
-
-const MenuVertical = [
-  {
-    label: "Menu",
-    key: "SubMenu",
-    children: [
-      {
-        label: (
-          <NavLink exact to="/" rel="noopener noreferrer">
-            Home
-          </NavLink>
-        ),
-        key: "home",
-      },
-      {
-        label: (
-          <NavLink exact to="login" rel="noopener noreferrer">
-            Login
-          </NavLink>
-        ),
-        key: "login",
-      },
-      {
-        label: (
-          <NavLink exact to="sobre" rel="noopener noreferrer">
-            Sobre
-          </NavLink>
-        ),
-        key: "sobre",
-      },
-    ],
   },
 ];
 
@@ -105,7 +71,7 @@ const MenuPublico = () => {
                 style={{ fontSize: "15px" }}
                 selectedKeys={[current]}
                 mode="horizontal"
-                items={MenuHorizontal}
+                items={items}
                 theme="dark"
                 breakpointWidth="xs"
               />
@@ -117,20 +83,13 @@ const MenuPublico = () => {
                 ref={menuRef}
                 style={{ width: "180px", position: "relative" }}
               >
-                <Menu
-                  style={{
-                    fontSize: "13px",
-                    marginTop: "5px",
-                    zIndex: 1,
-                    position: "absolute",
-                    top: "0",
-                    left: "0",
+                <Dropdown
+                  menu={{
+                    items,
                   }}
-                  selectedKeys={[current]}
-                  mode="inline"
-                  items={MenuVertical}
-                  theme="dark"
-                />
+                >
+                  <Button>Menu</Button>
+                </Dropdown>
               </div>
               <Button
                 style={{ color: "white", marginTop: "10px" }}

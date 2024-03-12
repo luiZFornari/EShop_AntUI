@@ -49,16 +49,17 @@ const MenuPrivado = () => {
     setCurrent(e.key);
   };
 
-  const MenuHorizontal = [
+  const items = [
     {
+      key: "1",
       label: (
-        <NavLink exact to="/" rel="noopener noreferrer">
+        <NavLink rel="noopener noreferrer" exact to="/">
           Home
         </NavLink>
       ),
-      key: "Home",
     },
     {
+      key: "2",
       label: autenticado ? "Usuário: " + autenticado.nome_usuario : "Usuário",
       children: [
         {
@@ -74,17 +75,17 @@ const MenuPrivado = () => {
           command: autenticado ? handleLogout : undefined,
         },
       ],
-      key: "user",
     },
     {
+      key: "3",
       label: (
-        <NavLink exact to="sobre" rel="noopener noreferrer">
+        <NavLink rel="noopener noreferrer" exact to="sobre">
           Sobre
         </NavLink>
       ),
-      key: "sobre",
     },
     {
+      key: "4",
       label: "Manutenções",
       children: [
         {
@@ -100,70 +101,6 @@ const MenuPrivado = () => {
               Categorias
             </NavLink>
           ),
-        },
-      ],
-    },
-  ];
-
-  const MenuVertical = [
-    {
-      label: "Menu",
-      key: "SubMenu",
-      children: [
-        {
-          label: (
-            <NavLink exact to="/" rel="noopener noreferrer">
-              Home
-            </NavLink>
-          ),
-          key: "home",
-        },
-        {
-          label: autenticado
-            ? "Usuário: " + autenticado.nome_usuario
-            : "Usuário",
-          children: [
-            {
-              label: autenticado ? (
-                <NavLink exact to="/" rel="noopener noreferrer">
-                  Logout
-                </NavLink>
-              ) : (
-                <NavLink exact to="login" rel="noopener noreferrer">
-                  Login
-                </NavLink>
-              ),
-              command: autenticado ? handleLogout : undefined,
-            },
-          ],
-          key: "user",
-        },
-        {
-          label: (
-            <NavLink exact to="sobre" rel="noopener noreferrer">
-              Sobre
-            </NavLink>
-          ),
-          key: "sobre",
-        },
-        {
-          label: "Manutenções",
-          children: [
-            {
-              label: (
-                <NavLink to="produtos" rel="noopener noreferrer">
-                  Produtos
-                </NavLink>
-              ),
-            },
-            {
-              label: (
-                <NavLink to="categorias" rel="noopener noreferrer">
-                  Categorias
-                </NavLink>
-              ),
-            },
-          ],
         },
       ],
     },
@@ -188,7 +125,7 @@ const MenuPrivado = () => {
                   style={{ fontSize: "15px", width: "100%" }}
                   selectedKeys={[current]}
                   mode="horizontal"
-                  items={MenuHorizontal}
+                  items={items}
                   theme="dark"
                   breakpointWidth="xs"
                 />
@@ -207,7 +144,7 @@ const MenuPrivado = () => {
                     }}
                     selectedKeys={[current]}
                     mode="inline"
-                    items={MenuVertical}
+                    items={items}
                     theme="dark"
                     breakpointWidth="xs"
                   />
