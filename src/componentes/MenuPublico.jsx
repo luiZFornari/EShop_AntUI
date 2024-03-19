@@ -60,13 +60,13 @@ const MenuPublico = () => {
         <Header style={{ paddingLeft: "10px", paddingRight: "10px" }}>
           {windowSize.width > 500 && (
             <Flex gap="middle" horizontal>
-              {/* <Button
+              <Button
                 style={{ color: "white", marginTop: "10px" }}
                 type="text"
                 size="large"
               >
                 EShop
-              </Button> */}
+              </Button>
               <Menu
                 style={{ fontSize: "15px" }}
                 selectedKeys={[current]}
@@ -91,13 +91,13 @@ const MenuPublico = () => {
                   <Button type="primary">Menu</Button>
                 </Dropdown>
               </div>
-              {/* <Button
+              <Button
                 style={{ color: "white", marginTop: "10px" }}
                 type="text"
                 size="large"
               >
                 EShop
-              </Button> */}
+              </Button>
             </Flex>
           )}
         </Header>
